@@ -747,7 +747,7 @@ public class HashMap<K, V> extends AbstractMap<K, V>
                     else if (e instanceof TreeNode)    //判断是否为红黑树结构
                         ((TreeNode<K, V>) e).split(this, newTab, j, oldCap);
                     else { // preserve order
-                        //进入这里表示  当前循环到的桶里存放的是链表，以下内容为链表数据迁移
+                        //todo 进入这里表示  当前循环到的桶里存放的是链表，以下内容为链表数据迁移
                         Node<K, V> loHead = null, loTail = null;
                         Node<K, V> hiHead = null, hiTail = null;
                         Node<K, V> next;
@@ -792,7 +792,8 @@ public class HashMap<K, V> extends AbstractMap<K, V>
         Node<K, V> e; //e 寻找到的桶中存放的元素（可以为空）
         if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY)  //判断 （当前数组是否为null || （数组长度小于树化阀值））  即 前面方法中的 binCount > 8 且 数组长度 < 64(MIN_TREEIFY_CAPACITY=64)
             resize(); //扩容
-        else if ((e = tab[index = (n - 1) & hash]) != null) {  //   判断寻找到的桶是否为空       index = (n - 1) & hash]) != null 寻址公式
+        else if ((e = tab[index = (n - 1) & hash]) != null) {  //   判断寻找到的桶是否为空    此时n=tab.length   index = (n - 1) & hash]) != null 寻址公式
+            //todo 树化
             //重点》》》树化开始
             //树化条件以下三点：
             //1、binCount（链表长度） > 8
