@@ -11,6 +11,11 @@ public class Test {
 
         }
         System.out.println(a);
+        int aa=8;
+        int bb = 5&2;
+        int cc = 5%2;
+        System.out.println(bb);
+        System.out.println(cc);
 
 
     }

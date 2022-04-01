@@ -1,6 +1,7 @@
 package com.learn.test.hashmaptest;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class HashMapTest {
     public static void main(String[] args) {
@@ -9,6 +10,8 @@ public class HashMapTest {
         hashMap.put("b", "2");
         hashMap.put("c", "3");
         hashMap.put("d", "4");
-
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+        concurrentHashMap.put("j", "6");
+        concurrentHashMap.put("p", "7");
     }
 }
