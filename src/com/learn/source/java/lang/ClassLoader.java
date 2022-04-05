@@ -408,7 +408,7 @@ public abstract class ClassLoader {
                 long t0 = System.nanoTime();
                 try {
                     if (parent != null) {
-                        c = parent.loadClass(name, false);
+                        c = parent.loadClass(name, false);//父类加载
                     } else {
                         c = findBootstrapClassOrNull(name);
                     }

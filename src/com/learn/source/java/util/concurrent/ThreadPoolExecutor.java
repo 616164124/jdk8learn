@@ -614,6 +614,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
 
         /** Delegates main run loop to outer runWorker  */
         public void run() {
+
             runWorker(this);
         }
 
@@ -902,6 +903,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
                 ! (rs == SHUTDOWN &&
                    firstTask == null &&
                    ! workQueue.isEmpty()))
+                //workQueue不为空时进来
                 return false;
 
             for (;;) {
@@ -1139,7 +1141,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
                     beforeExecute(wt, task);
                     Throwable thrown = null;
                     try {
-                        task.run();
+                        task.run(); //这里异常被捕获
                     } catch (RuntimeException x) {
                         thrown = x; throw x;
                     } catch (Error x) {
