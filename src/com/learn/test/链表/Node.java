@@ -24,12 +24,7 @@ public class Node {
         user.getClass().getClassLoader();
 
         Node node = new Node();
-        node.next = new Node("赵");
-        node.next.next = new Node("钱");
-        node.next.next.next = new Node("孙");
-        System.out.println(node.next.data);//赵
-        System.out.println(node.next.next.data);//钱
-        System.out.println(node.next.next.next.data);//孙
+//
 
     }
 }

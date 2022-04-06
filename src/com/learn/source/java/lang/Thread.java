@@ -745,6 +745,7 @@ class Thread implements Runnable {
     @Override
     public void run() {
         if (target != null) {
+           //debug target的内容是什么，查看那个类重写run方法的具体代码
             target.run();
         }
     }
