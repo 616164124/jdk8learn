@@ -13,5 +13,6 @@ public class HashMapTest {
         ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
         concurrentHashMap.put("j", "6");
         concurrentHashMap.put("p", "7");
+
     }
 }

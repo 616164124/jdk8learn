@@ -20,6 +20,10 @@ public class Test01 {
         new ExtendedExecutor().submit(() -> {
             int i = 1 / 0;
         });
+
+        pool1.submit(()->{
+           int i = 1/0;
+        });
     }
 
     private static int threadTest() {
@@ -34,7 +38,7 @@ class ExtendedExecutor extends ThreadPoolExecutor {
         super(12, 12, 100, TimeUnit.SECONDS, new LinkedBlockingQueue<>(12));
     }
 
-    // ...
+    // ...在线程run方法中
     public void afterExecute(Runnable r, Throwable t) {
         super.afterExecute(r, t);
         if (t == null && r instanceof Future<?>) {
