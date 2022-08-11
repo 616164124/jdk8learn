@@ -10,16 +10,24 @@ public class Test01 {
 //            threadTest();
 //        });
 
-//        pool2.submit(()->{
-//           threadTest();
-//        });
-//
+        //这里执行不会报错
+        pool2.submit(()->{
+           int i =1/0;
+        });
+
         //pool2.submit 不能获取线程中的异常，
         //   1、可以用future。get的形式获取
         //   2、就是用重写tThreadPoolExecutor 里的afterexecutor方法将异常捕获
-        new ExtendedExecutor().submit(() -> {
+        Future<?> submit = new ExtendedExecutorTest().submit(() -> {
             int i = 1 / 0;
         });
+        try {
+            submit.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
         pool1.submit(()->{
            int i = 1/0;
@@ -32,9 +40,9 @@ public class Test01 {
     }
 }
 
-class ExtendedExecutor extends ThreadPoolExecutor {
+class ExtendedExecutorTest extends ThreadPoolExecutor {
 
-    public ExtendedExecutor() {
+    public ExtendedExecutorTest() {
         super(12, 12, 100, TimeUnit.SECONDS, new LinkedBlockingQueue<>(12));
     }
 

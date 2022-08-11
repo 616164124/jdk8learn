@@ -1015,7 +1015,7 @@ public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
         for (Node<K,V>[] tab = table;;) {
             Node<K,V> f; int n, i, fh;
             if (tab == null || (n = tab.length) == 0)//检测数组是否为空
-                tab = initTable();
+                tab = initTable();//创建数组
             else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {    //判断检测当前Node是否有值
                 if (casTabAt(tab, i, null,
                              new Node<K,V>(hash, key, value, null)))

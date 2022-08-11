@@ -795,7 +795,7 @@ public class HashMap<K, V> extends AbstractMap<K, V>
         else if ((e = tab[index = (n - 1) & hash]) != null) {  //   判断寻找到的桶是否为空    此时n=tab.length   index = (n - 1) & hash]) != null 寻址公式
             //todo 树化
             //重点》》》树化开始
-            //树化条件以下三点：
+            //树化条件要满足以下三点：
             //1、binCount（链表长度） > 8
             //2、数组长度 >64
             //3、寻找到的桶已经在node（链表）了
