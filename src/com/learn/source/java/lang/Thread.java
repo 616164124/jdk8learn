@@ -696,7 +696,7 @@ class Thread implements Runnable {
      * @see        #run()
      * @see        #stop()
      */
-    public synchronized void start() {
+    public synchronized void  start() {
         /**
          * This method is not invoked for the main method thread or "system"
          * group threads created/set up by the VM. Any new functionality added

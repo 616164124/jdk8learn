@@ -949,7 +949,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
                     mainLock.unlock();
                 }
                 if (workerAdded) {
-                    t.start();
+                    t.start();//这里的t就是work的thread
                     workerStarted = true;
                 }
             }

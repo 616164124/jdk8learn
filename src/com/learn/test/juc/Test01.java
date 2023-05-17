@@ -9,15 +9,22 @@ public class Test01 {
         //ThreadPoolExecutor 源码
         //Lock源码
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(12, 12, 100, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10));
-       threadPoolExecutor.execute(new Runnable() {
+        threadPoolExecutor.execute(new Runnable() {
            @Override
            public void run() {
                System.out.println("12");
            }
        });
+
         Lock lock = new ReentrantLock();
         lock.lock();
         lock.unlock();
+        try {
+            int i = 1/0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        threadPoolExecutor.shutdown();
     }
 }

@@ -10,10 +10,19 @@ public class Test01 {
 //            threadTest();
 //        });
 
-        //这里执行不会报错
-        pool2.submit(()->{
-           int i =1/0;
+        //submit这里执行不会报错
+        pool2.submit(() -> {
+            int i = 1 / 0;
         });
+        //execute这个会报错
+        pool2.execute(() -> {
+            int i = 2 / 0;
+        });
+        /**
+         * sumbit 返回的是future 如果报错只能从future中获取，不会抛出异常
+         * execute 直接抛出异常
+         */
+
 
         //pool2.submit 不能获取线程中的异常，
         //   1、可以用future。get的形式获取
@@ -29,8 +38,8 @@ public class Test01 {
             e.printStackTrace();
         }
 
-        pool1.submit(()->{
-           int i = 1/0;
+        Future<?> submit1 = pool1.submit(() -> {
+            int i = 1 / 0;
         });
     }
 
